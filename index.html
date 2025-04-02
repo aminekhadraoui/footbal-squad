@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Devils FC - Official Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #c70000;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            animation: slideInLeft 1s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1579952363878-3f3c5b5b5b1a') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Players Section */
+        .players {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .player-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .player-image {
+            height: 300px;
+            background-size: cover;
+            background-position: top;
+            position: relative;
+        }
+
+        .player-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        /* Fixtures Section */
+        .fixtures {
+            background-color: #111;
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .fixtures-table {
+            max-width: 800px;
+            margin: 2rem auto;
+            border-collapse: collapse;
+        }
+
+        .fixtures-table td, .fixtures-table th {
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">RED DEVILS</a>
+            <div class="nav-links">
+                <a href="#players">Players</a>
+                <a href="#fixtures">Fixtures</a>
+                <a href="#news">News</a>
+                <a href="#shop">Shop</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>RED DEVILS FOOTBALL CLUB</h1>
+            <p>Established 1892 • 20-Time League Champions</p>
+            <button class="cta-button">Buy Tickets</button>
+        </div>
+    </section>
+
+    <section id="players" class="players">
+        <h2>Our Squad</h2>
+        <div class="players-grid">
+            <!-- Player Cards -->
+            <div class="player-card">
+                <div class="player-image" style="background-image: url('https://images.unsplash.com/photo-1560272564-c83b66b1ad12')"></div>
+                <div class="player-info">
+                    <h3>John Smith</h3>
+                    <p>Captain • Striker</p>
+                </div>
+            </div>
+            <!-- Add more player cards -->
+        </div>
+    </section>
+
+    <section id="fixtures" class="fixtures">
+        <h2>Upcoming Fixtures</h2>
+        <table class="fixtures-table">
+            <tr>
+                <th>Date</th>
+                <th>Match</th>
+                <th>Venue</th>
+            </tr>
+            <tr>
+                <td>2023-08-15</td>
+                <td>Red Devils vs City Rivals</td>
+                <td>Home</td>
+            </tr>
+            <!-- Add more fixtures -->
+        </table>
+    </section>
+
+    <script>
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(199, 0, 0, 0.9)';
+                header.style.padding = '0.5rem 1rem';
+            } else {
+                header.style.backgroundColor = '#c70000';
+                header.style.padding = '1rem';
+            }
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Player Card Animation
+        const playerCards = document.querySelectorAll('.player-card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        playerCards.forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(20px)';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
